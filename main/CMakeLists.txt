@@ -7,4 +7,9 @@ idf_component_register(
         nvs_flash
 )
 
-spiffs_create_partition_image(storage ../spiffs FLASH_IN_PROJECT)
+set(PROJECT_SPIFFS_DIR "${CMAKE_CURRENT_LIST_DIR}/../spiffs")
+if(EXISTS "${PROJECT_SPIFFS_DIR}" AND IS_DIRECTORY "${PROJECT_SPIFFS_DIR}")
+    spiffs_create_partition_image(storage "${PROJECT_SPIFFS_DIR}" FLASH_IN_PROJECT)
+else()
+    message(STATUS "SPIFFS image skipped: ${PROJECT_SPIFFS_DIR} not found")
+endif()

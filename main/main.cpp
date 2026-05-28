@@ -1,9 +1,12 @@
 /*
- * WT99P4C5-S1 MIDI migration entry point.
+ * WT99P4C5-S1 MIDI Piano firmware entry point.
  *
- * This is intentionally small: it proves the ESP-IDF + Arduino mixed build,
- * ESP32_Host_MIDI, and USB Host MIDI transport compile together before the
- * piano UI/audio layers are ported.
+ * Author: Ecoli
+ * Docs: https://noregrets42619.github.io/
+ * Source: https://github.com/Noregrets42619/ESP32-HOST-MIDI
+ *
+ * This file keeps the application entry small: initialize NVS, start the
+ * Arduino runtime inside ESP-IDF, then hand control to the piano app layer.
  */
 
 #include "esp_err.h"
