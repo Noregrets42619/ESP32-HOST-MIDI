@@ -1,8 +1,11 @@
 build/
-.vscode/
-managed_components/
-dependencies.lock
-sdkconfig
-.cursorignore
 .cache/
+.vscode/
+
+# ESP-IDF component manager downloads these from idf_component.yml.
+managed_components/
+
+# Keep local machine/project state out of the repository.
+sdkconfig
 sdkconfig.old
+.cursorignore
